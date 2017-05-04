@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 /** finds the zeros of a function, given two starting points (which must
  * have opposite signs */
 export function bisect(f, a, b, parameters) {
@@ -7,8 +9,8 @@ export function bisect(f, a, b, parameters) {
             fA = f(a),
             fB = f(b),
             delta = b - a;
-            if (Math.abs(fA)<0.00001) { fA = 0}
-            if (Math.abs(fB)<0.00001) { fB = 0}
+            if (Math.abs(fA)<0.00001) { fA = 0;}
+            if (Math.abs(fB)<0.00001) { fB = 0;}
 // console.log(a+";"+b +" --- "+fA+";"+fB);
         if (fA * fB > 0) {
             console.log("Initial bisect points must have opposite signs");

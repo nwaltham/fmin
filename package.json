@@ -17,21 +17,21 @@
     "url": "git+https://github.com/benfred/fmin.git"
   },
   "jshintConfig": {
-    "esnext": true
+    "esversion": 6
   },
   "scripts": {
     "pretest": "rimraf build && mkdir build && json2module package.json > build/package.js && rollup -f umd -n fmin -o build/fmin.js -- index.js && rollup -f umd -n fmin_vis -o build/fmin_vis.js -- index_vis.js",
-    "test": "jshint src src/visualizations  && tape 'test/**/*-test.js'",
+    "test": "jshint --exclude build  && tape 'test/**/*-test.js'",
     "prepublish": "npm run test && uglifyjs build/fmin.js -c -m -o build/fmin.min.js",
     "postpublish": "zip -j build/fmin.zip  LICENSE README.md build/fmin.js build/fmin.min.js"
   },
   "devDependencies": {
     "contour_plot": "0.0.1",
+    "jshint": "^2.8.0",
     "json2module": "0.0",
     "rollup": "0.25",
     "tape": "4",
-    "uglify-js": "2",
-    "jshint": "^2.8.0"
+    "uglify-js-harmony": "^2.7.5"
   },
   "bugs": {
     "url": "https://github.com/benfred/fmin/issues"
